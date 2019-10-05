@@ -10,11 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBAction func touchCard(_ sender: UIButton) {
+        //sender.setTitle("", for: .normal)
+        print("touched on button!")
     }
-
-
+    
+    
 }
-

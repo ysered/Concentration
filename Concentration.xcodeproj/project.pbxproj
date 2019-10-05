@@ -56,15 +56,23 @@
 		848F4A1523493B39008EF8A2 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				848F4A1623493B39008EF8A2 /* AppDelegate.swift */,
-				848F4A1823493B39008EF8A2 /* SceneDelegate.swift */,
 				848F4A1A23493B39008EF8A2 /* ViewController.swift */,
 				848F4A1C23493B39008EF8A2 /* Main.storyboard */,
-				848F4A1F23493B3C008EF8A2 /* Assets.xcassets */,
-				848F4A2123493B3C008EF8A2 /* LaunchScreen.storyboard */,
+				848F4A2A23493E83008EF8A2 /* Supporting Files */,
 				848F4A2423493B3C008EF8A2 /* Info.plist */,
 			);
 			path = Concentration;
+			sourceTree = "<group>";
+		};
+		848F4A2A23493E83008EF8A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				848F4A1623493B39008EF8A2 /* AppDelegate.swift */,
+				848F4A1823493B39008EF8A2 /* SceneDelegate.swift */,
+				848F4A1F23493B3C008EF8A2 /* Assets.xcassets */,
+				848F4A2123493B3C008EF8A2 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ysered.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,7 +318,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ysered.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
