@@ -10,14 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count / 2)
+    private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    private var emojiChoices = ["🎃", "👻", "😈", "🦇", "🕷", "🍎", "🍭", "🦴", "🕸"]
+    private var emoji = [Int: String]()
     
-    private var flipCount = 0 { didSet { flipCountLabel.text = "Flips: \(flipCount)" } }
+    private var numberOfPairsOfCards: Int {
+        get {
+            return cardButtons.count / 2
+        }
+    }
     
-    @IBOutlet var cardButtons: [UIButton]!
-    @IBOutlet weak var flipCountLabel: UILabel!
+    private(set) var flipCount = 0 {
+        didSet {
+            flipCountLabel.text = "Flips: \(flipCount)"
+        }
+    }
     
-    @IBAction func touchCard(_ sender: UIButton) {
+    @IBOutlet private var cardButtons: [UIButton]!
+    @IBOutlet private weak var flipCountLabel: UILabel!
+    
+    @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             flipCount += 1
             game.chooseCard(at: cardNumber)
@@ -40,11 +52,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    private var emojiChoices = ["🎃", "👻", "😈", "🦇", "🕷", "🍎", "🍭", "🦴", "🕸"]
-    
-    private var emoji = [Int: String]()
-    
+        
     private func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card {
+struct Card: Equatable {
 
     var isFaceUp = false
     var isMatched = false
@@ -18,6 +18,10 @@ struct Card {
     
     init() {
         self.identifier = Card.getUniqueIdentifier()
+    }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
 
     private static func getUniqueIdentifier() -> Int {
