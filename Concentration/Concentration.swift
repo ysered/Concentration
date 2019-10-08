@@ -10,7 +10,8 @@ import Foundation
 
 class Concentration {
     
-    var cards = [Card]()
+    private(set) var cards = [Card]()
+    
     var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             let facedUpCards = cards.enumerated().filter { (index, card) -> Bool in card.isFaceUp }
