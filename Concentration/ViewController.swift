@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-    private var emojiChoices = ["🎃", "👻", "😈", "🦇", "🕷", "🍎", "🍭", "🦴", "🕸"]
+    private var emojiChoices = "🎃👻😈🦇🕷🍎🍭🦴🕸"
     private var emoji = [Card: String]()
     
     private var numberOfPairsOfCards: Int {
@@ -55,8 +55,8 @@ class ViewController: UIViewController {
         
     private func emoji(for card: Card) -> String {
         if emoji[card] == nil, emojiChoices.count > 0 {
-            let randomIndex = emojiChoices.count.randomValue
-            emoji[card] = emojiChoices.remove(at: randomIndex)
+            let randomIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.randomValue)
+            emoji[card] = String(emojiChoices.remove(at: randomIndex))
         }
         return emoji[card] ?? "?"
     }
