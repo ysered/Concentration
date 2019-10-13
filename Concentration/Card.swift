@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card: Hashable {
+struct Card {
 
     private static var identifierFactory = 0
     
@@ -25,16 +25,19 @@ struct Card: Hashable {
         self.identifier = Card.getUniqueIdentifier()
     }
     
+    private static func getUniqueIdentifier() -> Int {
+        identifierFactory += 1
+        return identifierFactory
+    }
+}
+
+extension Card: Hashable {
+    
     static func == (lhs: Card, rhs: Card) -> Bool {
         return lhs.identifier == rhs.identifier
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
-    }
-
-    private static func getUniqueIdentifier() -> Int {
-        identifierFactory += 1
-        return identifierFactory
     }
 }
