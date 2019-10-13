@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-    private var emojiChoices = "🎃👻😈🦇🕷🍎🍭🦴🕸"
+    private var emojiChoices = EmojiTheme.animals.rawValue
     private var emoji = [Card: String]()
     
     private var numberOfPairsOfCards: Int {
@@ -67,6 +67,26 @@ class ViewController: UIViewController {
             emoji[card] = String(emojiChoices.remove(at: randomIndex))
         }
         return emoji[card] ?? "?"
+    }
+}
+
+enum EmojiTheme: String {
+    case faces = "🙂😍😡😢🤓🤬🤯🤔😴"
+    case haloween = "🎃👻😈🦇🕷🍎🍭🦴🕸"
+    case animals = "🐶🐼🐠🐥🙉🐞🐊🐧🐷"
+    case fruits = "🍓🍉🍌🍒🍋🍇🥝🍊🥥"
+    case vegetables = "🥑🥦🥕🍆🍅🌶🥔🥬🌽"
+    case sport = "⚽️🏀🏓🥊🏉🎱🥅🥋⛷"
+
+    var description: String {
+        switch self {
+            case .animals: return "Animals"
+            case .haloween: return "Halloween"
+            case .faces: return "Faces"
+            case .fruits: return "Friuits"
+            case .vegetables: return "Vegetables"
+            case .sport: return "Sport"
+        }
     }
 }
 
