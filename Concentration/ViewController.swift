@@ -11,7 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
-    private var emojiChoices = EmojiTheme.animals.rawValue
+    
+    private lazy var emojiChoices = randomTheme.rawValue
+    
+    private var randomTheme: EmojiTheme {
+        let randomIndex = EmojiTheme.allCases.count.randomValue
+        return EmojiTheme.allCases[randomIndex]
+    }
     private var emoji = [Card: String]()
     
     private var numberOfPairsOfCards: Int {
@@ -35,6 +41,14 @@ class ViewController: UIViewController {
         didSet {
             flipCount = 0
         }
+    }
+
+    @IBAction func touchNewGame(_ sender: UIButton) {
+        emoji = [:]
+        emojiChoices = randomTheme.rawValue
+        game.resetCards()
+        updateViewFromModel()
+        flipCount = 0
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -70,22 +84,28 @@ class ViewController: UIViewController {
     }
 }
 
-enum EmojiTheme: String {
+enum EmojiTheme: String, CaseIterable {
     case faces = "🙂😍😡😢🤓🤬🤯🤔😴"
     case haloween = "🎃👻😈🦇🕷🍎🍭🦴🕸"
     case animals = "🐶🐼🐠🐥🙉🐞🐊🐧🐷"
     case fruits = "🍓🍉🍌🍒🍋🍇🥝🍊🥥"
     case vegetables = "🥑🥦🥕🍆🍅🌶🥔🥬🌽"
     case sport = "⚽️🏀🏓🥊🏉🎱🥅🥋⛷"
+    case food = "🍔🍟🍕🥗🌭🍗🍦🍳🍱"
+    case traveling = "🚕✈️🚁⛴🎢🎡🏕🏝🏰"
+    case objects = "📱💾🖥📷📺📽💡⏰📻"
 
     var description: String {
         switch self {
-            case .animals: return "Animals"
-            case .haloween: return "Halloween"
-            case .faces: return "Faces"
-            case .fruits: return "Friuits"
-            case .vegetables: return "Vegetables"
-            case .sport: return "Sport"
+        case .animals: return "Animals"
+        case .haloween: return "Halloween"
+        case .faces: return "Faces"
+        case .fruits: return "Friuits"
+        case .vegetables: return "Vegetables"
+        case .sport: return "Sport"
+        case .food: return "Food"
+        case .traveling: return "Traveling"
+        case .objects: return "Objects"
         }
     }
 }

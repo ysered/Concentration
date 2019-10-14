@@ -33,7 +33,7 @@ struct Concentration {
         cards.shuffle()
     }
     
-    mutating  func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index in cards array bounds")
         
         if !cards[index].isMatched {
@@ -47,6 +47,13 @@ struct Concentration {
             } else {
                 indexOfOneAndOnlyFaceUpCard = index
             }
+        }
+    }
+    
+    mutating func resetCards() {
+        for index in cards.indices {
+            cards[index].isMatched = false
+            cards[index].isFaceUp = false
         }
     }
 }
