@@ -26,36 +26,33 @@ class ViewController: UIViewController {
         }
     }
     
-    private(set) var flipCount = 0 {
+    @IBOutlet private var cardButtons: [UIButton]!
+    
+    @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet {
-            let attributes: [NSAttributedString.Key:Any] = [
-                .strokeWidth: 5.0,
-                .strokeColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
-            ]
-            flipCountLabel.attributedText = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+            updateFlipCountLabel(with: game.flipCount)
         }
     }
     
-    @IBOutlet private var cardButtons: [UIButton]!
-    @IBOutlet private weak var flipCountLabel: UILabel! {
+    @IBOutlet weak var scoreLabel: UILabel! {
         didSet {
-            flipCount = 0
+            updateScoreLabel(with: game.score)
         }
     }
 
     @IBAction func touchNewGame(_ sender: UIButton) {
         emoji = [:]
         emojiChoices = randomTheme.rawValue
-        game.resetCards()
+        game.reset()
         updateViewFromModel()
-        flipCount = 0
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
-            flipCount += 1
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
+            updateFlipCountLabel(with: game.flipCount)
+            updateScoreLabel(with: game.score)
         } else {
             print("Error: card was not in cardButtons array!")
         }
@@ -70,9 +67,21 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             } else {
                 button.setTitle("", for: .normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+                button.backgroundColor = AppStyles.getCardBackgroundColor(isCardMatched: card.isMatched)
             }
         }
+        updateFlipCountLabel(with: game.flipCount)
+        updateScoreLabel(with: game.score)
+    }
+    
+    private func updateScoreLabel(with score: UInt) {
+        scoreLabel.attributedText = NSAttributedString(string: "Score: \(score)",
+            attributes: AppStyles.labelTextAttributes)
+    }
+    
+    private func updateFlipCountLabel(with flips: UInt) {
+        flipCountLabel.attributedText = NSAttributedString(string: "Flips: \(flips)",
+            attributes: AppStyles.labelTextAttributes)
     }
         
     private func emoji(for card: Card) -> String {

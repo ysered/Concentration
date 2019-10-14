@@ -132,38 +132,50 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-n3-oWm" userLabel="flipCountLabel">
-                                <rect key="frame" x="20" y="814" width="374" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V94-OJ-99W">
-                                <rect key="frame" x="136" y="550" width="143" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="New Game"/>
-                                <connections>
-                                    <action selector="touchNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BhJ-aR-o2i"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-Ff-lQV">
+                                <rect key="frame" x="36" y="758" width="342.5" height="104"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8f2-Fn-Nxt">
+                                        <rect key="frame" x="11.5" y="0.0" width="319.5" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-n3-oWm" userLabel="flipCountLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="140.5" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMQ-Py-0fK">
+                                                <rect key="frame" x="160.5" y="0.0" width="159" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V94-OJ-99W">
+                                        <rect key="frame" x="100" y="56" width="143" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="New Game"/>
+                                        <connections>
+                                            <action selector="touchNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BhJ-aR-o2i"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V94-OJ-99W" secondAttribute="trailing" constant="135" id="25z-mD-YFF"/>
-                            <constraint firstItem="V94-OJ-99W" firstAttribute="leading" secondItem="YdQ-l7-NJ0" secondAttribute="trailing" constant="-258" id="D24-kQ-rme"/>
-                            <constraint firstItem="Xyd-n3-oWm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OVn-qn-y0f" secondAttribute="bottom" constant="8" symbolic="YES" id="EFN-MO-Vwu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OVn-qn-y0f" secondAttribute="trailing" constant="20" id="J47-uQ-pyR"/>
                             <constraint firstItem="OVn-qn-y0f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="KUv-ue-O5L"/>
                             <constraint firstItem="OVn-qn-y0f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mj6-RW-mrm"/>
-                            <constraint firstAttribute="bottom" secondItem="V94-OJ-99W" secondAttribute="bottom" constant="298" id="dRH-K4-P9c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xyd-n3-oWm" secondAttribute="trailing" constant="20" id="eg5-HZ-6fh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xyd-n3-oWm" secondAttribute="bottom" id="mgY-za-WJj"/>
-                            <constraint firstItem="Xyd-n3-oWm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oSd-Ag-X8c"/>
-                            <constraint firstItem="V94-OJ-99W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="vNj-30-rff"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VFe-Ff-lQV" secondAttribute="trailing" constant="35.5" id="S6Q-yV-GbF"/>
+                            <constraint firstItem="VFe-Ff-lQV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="SZs-9A-agl"/>
+                            <constraint firstItem="VFe-Ff-lQV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xZe-pv-Jw8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="Xyd-n3-oWm" id="a6g-Ac-fzD"/>
+                        <outlet property="scoreLabel" destination="NMQ-Py-0fK" id="LaU-Mw-2aa"/>
                         <outletCollection property="cardButtons" destination="LPf-QP-RxU" collectionClass="NSMutableArray" id="57C-Y5-aPc"/>
                         <outletCollection property="cardButtons" destination="C1y-Aj-kzr" collectionClass="NSMutableArray" id="s6V-LL-Dx4"/>
                         <outletCollection property="cardButtons" destination="8Gq-8W-MsK" collectionClass="NSMutableArray" id="CRy-hu-XWn"/>

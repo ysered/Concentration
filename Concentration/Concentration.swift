@@ -11,6 +11,7 @@ import Foundation
 struct Concentration {
     
     private(set) var cards = [Card]()
+    private var seenCards: Set<Int> = []
     
     var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
@@ -23,6 +24,9 @@ struct Concentration {
         }
     }
     
+    private(set) var flipCount: UInt = 0
+    private(set) var score: UInt = 0
+    
     init(numberOfPairsOfCards: Int) {
         assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)): pairs of cards should be > 0")
         
@@ -31,30 +35,42 @@ struct Concentration {
             cards += [card, card]
         }
         cards.shuffle()
+        seenCards.reserveCapacity(numberOfPairsOfCards * 2)
     }
     
     mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index in cards array bounds")
         
+        flipCount += 1
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 // check if 2 cards match
                 if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score += 2
+                } else {
+                    if seenCards.contains(index) && seenCards.contains(matchIndex) {
+                        score = score > 0 ? score - 1 : 0
+                    }
                 }
                 cards[index].isFaceUp = true
+                seenCards.insert(index)
+                seenCards.insert(matchIndex)
             } else {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
     }
     
-    mutating func resetCards() {
+    mutating func reset() {
         for index in cards.indices {
             cards[index].isMatched = false
             cards[index].isFaceUp = false
         }
+        seenCards = []
+        flipCount = 0
+        score = 0
     }
 }
 

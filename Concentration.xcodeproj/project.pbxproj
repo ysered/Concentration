@@ -15,6 +15,7 @@
 		848F4A2323493B3C008EF8A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848F4A2123493B3C008EF8A2 /* LaunchScreen.storyboard */; };
 		848F4A2C234A07B0008EF8A2 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F4A2B234A07B0008EF8A2 /* Concentration.swift */; };
 		848F4A2E234A0868008EF8A2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F4A2D234A0868008EF8A2 /* Card.swift */; };
+		8497B96223549AE8006C2D37 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497B96123549AE8006C2D37 /* AppStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		848F4A2423493B3C008EF8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848F4A2B234A07B0008EF8A2 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		848F4A2D234A0868008EF8A2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8497B96123549AE8006C2D37 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				848F4A1C23493B39008EF8A2 /* Main.storyboard */,
 				848F4A2A23493E83008EF8A2 /* Supporting Files */,
 				848F4A2423493B3C008EF8A2 /* Info.plist */,
+				8497B96123549AE8006C2D37 /* AppStyles.swift */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				848F4A1B23493B39008EF8A2 /* ViewController.swift in Sources */,
 				848F4A2C234A07B0008EF8A2 /* Concentration.swift in Sources */,
 				848F4A2E234A0868008EF8A2 /* Card.swift in Sources */,
+				8497B96223549AE8006C2D37 /* AppStyles.swift in Sources */,
 				848F4A1723493B39008EF8A2 /* AppDelegate.swift in Sources */,
 				848F4A1923493B39008EF8A2 /* SceneDelegate.swift in Sources */,
 			);
