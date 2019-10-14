@@ -51,8 +51,6 @@ class ViewController: UIViewController {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
-            updateFlipCountLabel(with: game.flipCount)
-            updateScoreLabel(with: game.score)
         } else {
             print("Error: card was not in cardButtons array!")
         }
@@ -109,7 +107,7 @@ enum EmojiTheme: String, CaseIterable {
         case .animals: return "Animals"
         case .haloween: return "Halloween"
         case .faces: return "Faces"
-        case .fruits: return "Friuits"
+        case .fruits: return "Fruits"
         case .vegetables: return "Vegetables"
         case .sport: return "Sport"
         case .food: return "Food"

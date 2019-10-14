@@ -16,6 +16,7 @@
 		848F4A2C234A07B0008EF8A2 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F4A2B234A07B0008EF8A2 /* Concentration.swift */; };
 		848F4A2E234A0868008EF8A2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F4A2D234A0868008EF8A2 /* Card.swift */; };
 		8497B96223549AE8006C2D37 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497B96123549AE8006C2D37 /* AppStyles.swift */; };
+		8497B9642354F3A5006C2D37 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8497B9632354F3A5006C2D37 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		848F4A2B234A07B0008EF8A2 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		848F4A2D234A0868008EF8A2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8497B96123549AE8006C2D37 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
+		8497B9632354F3A5006C2D37 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +64,13 @@
 		848F4A1523493B39008EF8A2 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				848F4A2B234A07B0008EF8A2 /* Concentration.swift */,
+				8497B96123549AE8006C2D37 /* AppStyles.swift */,
 				848F4A2D234A0868008EF8A2 /* Card.swift */,
+				848F4A2B234A07B0008EF8A2 /* Concentration.swift */,
 				848F4A1A23493B39008EF8A2 /* ViewController.swift */,
 				848F4A1C23493B39008EF8A2 /* Main.storyboard */,
-				848F4A2A23493E83008EF8A2 /* Supporting Files */,
 				848F4A2423493B3C008EF8A2 /* Info.plist */,
-				8497B96123549AE8006C2D37 /* AppStyles.swift */,
+				848F4A2A23493E83008EF8A2 /* Supporting Files */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -80,6 +82,7 @@
 				848F4A1823493B39008EF8A2 /* SceneDelegate.swift */,
 				848F4A1F23493B3C008EF8A2 /* Assets.xcassets */,
 				848F4A2123493B3C008EF8A2 /* LaunchScreen.storyboard */,
+				8497B9632354F3A5006C2D37 /* Colors.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				848F4A2323493B3C008EF8A2 /* LaunchScreen.storyboard in Resources */,
+				8497B9642354F3A5006C2D37 /* Colors.xcassets in Resources */,
 				848F4A2023493B3C008EF8A2 /* Assets.xcassets in Resources */,
 				848F4A1E23493B39008EF8A2 /* Main.storyboard in Resources */,
 			);
