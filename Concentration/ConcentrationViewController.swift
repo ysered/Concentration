@@ -1,23 +1,14 @@
-//
-//  ViewController.swift
-//  Concentration
-//
-//  Created by Yurii Serediuk on 10/5/19.
-//  Copyright © 2019 Yurii Serediuk. All rights reserved.
-//
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
 
     private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
-    private lazy var emojiChoices = randomTheme.rawValue
+    private var appTheme = AppTheme.animals.getAppThemeAttributes()
     
-    private var randomTheme: EmojiTheme {
-        let randomIndex = EmojiTheme.allCases.count.randomValue
-        return EmojiTheme.allCases[randomIndex]
-    }
+    private lazy var emojiChoices: String = appTheme.emojiSet
+    
     private var emoji = [Card: String]()
     
     private var numberOfPairsOfCards: Int {
@@ -42,7 +33,7 @@ class ViewController: UIViewController {
 
     @IBAction func touchNewGame(_ sender: UIButton) {
         emoji = [:]
-        emojiChoices = randomTheme.rawValue
+        emojiChoices = appTheme.emojiSet
         game.reset()
         updateViewFromModel()
     }
@@ -62,10 +53,10 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             if card.isFaceUp {
                 button.setTitle(emoji(for: card), for: .normal)
-                button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                button.backgroundColor = appTheme.getBackgroundColor(for: card)
             } else {
                 button.setTitle("", for: .normal)
-                button.backgroundColor = AppStyles.getCardBackgroundColor(isCardMatched: card.isMatched)
+                button.backgroundColor = appTheme.getBackgroundColor(for: card)
             }
         }
         updateFlipCountLabel(with: game.flipCount)
@@ -73,13 +64,17 @@ class ViewController: UIViewController {
     }
     
     private func updateScoreLabel(with score: UInt) {
-        scoreLabel.attributedText = NSAttributedString(string: "Score: \(score)",
-            attributes: AppStyles.labelTextAttributes)
+        scoreLabel.attributedText = NSAttributedString(
+            string: "Score: \(score)",
+            attributes: [/*.strokeWidth: 5.0, */.strokeColor: appTheme.accentColor]
+        )
     }
     
     private func updateFlipCountLabel(with flips: UInt) {
-        flipCountLabel.attributedText = NSAttributedString(string: "Flips: \(flips)",
-            attributes: AppStyles.labelTextAttributes)
+        flipCountLabel.attributedText = NSAttributedString(
+            string: "Flips: \(flips)",
+            attributes: [/*.strokeWidth: 5.0, */.strokeColor: appTheme.accentColor]
+        )
     }
         
     private func emoji(for card: Card) -> String {
@@ -88,32 +83,6 @@ class ViewController: UIViewController {
             emoji[card] = String(emojiChoices.remove(at: randomIndex))
         }
         return emoji[card] ?? "?"
-    }
-}
-
-enum EmojiTheme: String, CaseIterable {
-    case faces = "🙂😍😡😢🤓🤬🤯🤔😴"
-    case haloween = "🎃👻😈🦇🕷🍎🍭🦴🕸"
-    case animals = "🐶🐼🐠🐥🙉🐞🐊🐧🐷"
-    case fruits = "🍓🍉🍌🍒🍋🍇🥝🍊🥥"
-    case vegetables = "🥑🥦🥕🍆🍅🌶🥔🥬🌽"
-    case sport = "⚽️🏀🏓🥊🏉🎱🥅🥋⛷"
-    case food = "🍔🍟🍕🥗🌭🍗🍦🍳🍱"
-    case traveling = "🚕✈️🚁⛴🎢🎡🏕🏝🏰"
-    case objects = "📱💾🖥📷📺📽💡⏰📻"
-
-    var description: String {
-        switch self {
-        case .animals: return "Animals"
-        case .haloween: return "Halloween"
-        case .faces: return "Faces"
-        case .fruits: return "Fruits"
-        case .vegetables: return "Vegetables"
-        case .sport: return "Sport"
-        case .food: return "Food"
-        case .traveling: return "Traveling"
-        case .objects: return "Objects"
-        }
     }
 }
 

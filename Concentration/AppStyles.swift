@@ -8,55 +8,23 @@
 
 import UIKit
 
-class AppColors {
-    private(set) static var transparent = UIColor(named: "Transparent")!
+struct AppColors {
+    static let transparent = UIColor(named: "Transparent")!
+
+    static let bgDefault = UIColor(named: "BgDefault")!
+    static let accentDefault = UIColor(named: "AccentDefault")!
+    static let labelColor = UIColor(named: "LabelColor")!
     
-    private(set) static var bgHalloween = UIColor(named: "BgHalloween")!
-    private(set) static var accentHalloween = UIColor(named: "AccentHalloween")!
+    static let bgHalloween = UIColor(named: "BgHalloween")!
+    static let accentHalloween = UIColor(named: "AccentHalloween")!
+    static let labelColorHaloween = accentHalloween
     
-    private(set) static var accentColor = accentHalloween
+    static let accentColor = accentHalloween
 }
 
 class AppStyles {
-
-    private(set) static var labelTextAttributes: [NSAttributedString.Key:Any] = [
-        //.strokeWidth: 5.0,
-        .strokeColor: AppColors.accentColor
-    ]
     
     static func getCardBackgroundColor(isCardMatched: Bool) -> UIColor {
         return isCardMatched ? AppColors.transparent : AppColors.accentColor
-    }
-}
-
-struct AppTheme {
-    var backgroundColor: UIColor
-    var accentColor: UIColor
-    var emojiSet: String
-}
-
-
-//    case faces = "🙂😍😡😢🤓🤬🤯🤔😴"
-//    case haloween = "🎃👻😈🦇🕷🍎🍭🦴🕸"
-//    case animals = "🐶🐼🐠🐥🙉🐞🐊🐧🐷"
-//    case fruits = "🍓🍉🍌🍒🍋🍇🥝🍊🥥"
-//    case vegetables = "🥑🥦🥕🍆🍅🌶🥔🥬🌽"
-//    case sport = "⚽️🏀🏓🥊🏉🎱🥅🥋⛷"
-//    case food = "🍔🍟🍕🥗🌭🍗🍦🍳🍱"
-//    case traveling = "🚕✈️🚁⛴🎢🎡🏕🏝🏰"
-//    case objects = "📱💾🖥📷📺📽💡⏰📻"
-
-enum AppThemes : CaseIterable {
-    case haloween
-    case animals
-    
-    func getTheme() -> AppTheme {
-        
-        switch self {
-        case .haloween:
-            return AppTheme(backgroundColor: AppColors.bgHalloween, accentColor: AppColors.accentHalloween, emojiSet: "🎃👻😈🦇🕷🍎🍭🦴🕸")
-        case .animals:
-            return AppTheme(backgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), accentColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), emojiSet: "🐶🐼🐠🐥🙉🐞🐊🐧🐷")
-        }
     }
 }
