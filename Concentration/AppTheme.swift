@@ -13,14 +13,21 @@ protocol AppThemeAttributes {
  }
 
 extension AppThemeAttributes {
+    var clearColor: UIColor {
+        UIColor.clear
+    }
+    
     func getBackgroundColor(for card: Card) -> UIColor {
-        return card.isFaceUp ? facedUpCardBackgroundColor : facedDownCardBackgroundColor
+        if card.isMatched {
+            return clearColor
+        } else {
+            return card.isFaceUp ? facedUpCardBackgroundColor : facedDownCardBackgroundColor
+        }
     }
 }
 
-enum AppTheme {
-    case animals
-    case halloween
+enum AppTheme: Int {
+    case animals = 1, halloween
 
     func getAppThemeAttributes() -> AppThemeAttributes {
         switch self {

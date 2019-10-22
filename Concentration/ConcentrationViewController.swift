@@ -3,9 +3,9 @@ import UIKit
 
 class ConcentrationViewController: UIViewController {
 
-    private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    var appTheme: AppThemeAttributes = AppTheme.animals.getAppThemeAttributes()
     
-    private var appTheme = AppTheme.animals.getAppThemeAttributes()
+    private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     private lazy var emojiChoices: String = appTheme.emojiSet
     
@@ -45,6 +45,12 @@ class ConcentrationViewController: UIViewController {
         } else {
             print("Error: card was not in cardButtons array!")
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = appTheme.backgroundColor
+        updateViewFromModel()
     }
     
     private func updateViewFromModel() {
